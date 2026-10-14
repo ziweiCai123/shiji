@@ -1,0 +1,19 @@
+[project]
+name = "shiji"
+version = "0.1.0"
+description = "拾迹 Trace — 从 Claude Code 对话自动生成实习学习笔记与成长轨迹"
+requires-python = ">=3.13"
+dependencies = [
+    "jinja2>=3.1.6",
+    "openai>=2.44.0",
+    "pydantic>=2.13.4",
+    "rich>=15.0.0",
+    "typer>=0.26.8",
+]
+
+[project.scripts]
+shiji = "shiji:main"
+
+[build-system]
+requires = ["uv_build>=0.11.26,<0.12.0"]
+build-backend = "uv_build"

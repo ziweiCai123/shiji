@@ -1,0 +1,5 @@
+_local_only/
+.venv/
+__pycache__/
+*.pyc
+.trace/trace.db

@@ -1,0 +1,55 @@
+# 📅 {{ date }} · 学习笔记
+
+> 第 {{ day_index }} 天 · 🔥 连续 {{ streak }} 天（宽限 {{ grace_used }}/{{ grace_days }}）· 本周第 {{ weekday }} 天
+> 今日：{{ sessions }} 个会话 · {{ turns }} 轮对话 · 涉及技术 {{ technologies | length }} 个 · 🐛 攻克问题 {{ mistakes_resolved }} 个
+
+## 🎯 今天学到了什么
+{% if technologies %}
+{% for t in technologies %}
+- **{{ t.name }}** — {{ t.what_learned }}{{ ' _(把握较低，待巩固)_' if t.confidence < 0.5 else '' }}
+{% endfor %}
+{% else %}
+- _（今天没有提取到明确的新技术，可能只是常规开发）_
+{% endif %}
+
+{% if concepts_learned %}
+## 💡 理解的概念
+{% for c in concepts_learned %}
+- {{ c }}
+{% endfor %}
+{% endif %}
+
+## 🤔 我问过的问题
+{% if questions_asked %}
+{% for q in questions_asked %}
+- {{ q }}
+{% endfor %}
+{% else %}
+- _（今天没有代表性的问题被记录）_
+{% endif %}
+
+{% if mistakes_and_debugging %}
+## 🐛 今天踩的坑（最有价值的部分！）
+{% for m in mistakes_and_debugging %}
+- **{{ m.problem }}** → 根因：{{ m.root_cause }} → {{ '解决 ✅' if m.resolved else '未解决 ❌' }}
+{% endfor %}
+{% endif %}
+
+{% if today_badges %}
+> 🏅 今日新徽章：{{ today_badges | join(" · ") }}
+{% endif %}
+
+## ✨ 三段反思
+- **做得好**：
+- **可改进**：
+- **学到了**：{{ summary }}
+
+## 📚 待深入（Follow-up）
+- [ ]
+
+<!-- user-notes -->
+（这里留给你手写补充，生成器不会覆盖本区块）
+<!-- /user-notes -->
+
+---
+🤖 由 拾迹 Trace 从今日 Claude Code 对话自动生成 · 模型 {{ model }} · 挣扎度 {{ struggle_level }}

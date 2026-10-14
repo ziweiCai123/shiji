@@ -1,0 +1,27 @@
+# 拾迹 Trace 配置示例 —— 复制到你的笔记仓库的 .trace/config.toml 后按需修改
+# （`shiji init` 会自动生成一份默认的，这个文件只是参考）
+
+[llm]
+# OpenAI 兼容接口。默认智谱 GLM（Claude Code 走的就是它，key 现成）
+base_url = "https://open.bigmodel.cn/api/paas/v4/"
+# API key 从环境变量读，不要硬编码进文件
+api_key_env = "ZHIPUAI_API_KEY"
+model = "glm-4.6"
+
+# 换 DeepSeek 示例：
+# base_url = "https://api.deepseek.com"
+# model = "deepseek-chat"
+# api_key_env = "DEEPSEEK_API_KEY"
+
+# 换通义 Qwen 示例：
+# base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+# model = "qwen-plus"
+# api_key_env = "DASHSCOPE_API_KEY"
+
+[streak]
+# 连续天数宽限：最多断这么多天不让归零（防焦虑、防刷量）
+grace_days = 3
+
+[sources]
+# 跳过含敏感代码的工作目录（按需开启）
+# exclude_cwds = ["C:\\Users\\me\\company-secrets"]
